@@ -49,4 +49,4 @@ def main(args):
         poison(routerIP, victimIP, routerMAC, victimMAC)
         time.sleep(1.5)
 
-main(parse_args())
+#main(parse_args())

