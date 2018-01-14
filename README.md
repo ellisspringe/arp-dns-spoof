@@ -1,22 +1,22 @@
 # Installation(on Debian-based Linux Distribution)
 
-## Install [Scapy](http://www.secdev.org/projects/scapy/doc/installation.html)
+## Update your operating system before running
+
 ```
-% sudo apt-get install tcpdump graphviz imagemagick python-gnuplot python-crypto python-pyx
-% pip install scapy
+% sudo apt update
 ```
 
-## Install [python-NetfilterQueue](https://github.com/fqrouter/python-netfilterqueue)
+## Clone and enter this repository
+
 ```
-% sudo apt-get install build-essential python-dev libnetfilter-queue-dev
-% git clone https://github.com/fqrouter/python-netfilterqueue.git
-% cd python-netfilterqueue
-% python setup.py install
+% git clone http://github.com/ellisspringe/spoof-phisher
+% cd spoof-phisher
 ```
 
-## ...and clone this repository!
+## Run the installer script (check sources in /etc/apt/source.list if things aren't downloaded properly)
+
 ```
-% git clone https://github.com/devleoper/arp-dns-spoof.git
+% sudo bash install
 ```
 
 # Usage

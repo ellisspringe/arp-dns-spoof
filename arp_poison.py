@@ -30,10 +30,10 @@ def restore(routerIP, victimIP, routerMAC, victimMAC):
 def main(args):
     if os.geteuid() != 0:
         sys.exit("[!] Please run as root")
-    routerIP = args.routerIP
-    victimIP = args.victimIP
-    routerMAC = originalMAC(args.routerIP)
-    victimMAC = originalMAC(args.victimIP)
+    routerIP = args[0]
+    victimIP = args[1]
+    routerMAC = originalMAC(routerIP)
+    victimMAC = originalMAC(victimIP)
     if routerMAC == None:
         sys.exit("Could not find router MAC address. Closing....")
     if victimMAC == None:

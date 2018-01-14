@@ -2,18 +2,18 @@
 
 # check priviledges
 if [ $UID != "0" ]; then
-  
+
   echo -e "Run with sudo priviledges\n"
   exit
 
 else
-  
+
   # install scapy, dependencies
-  sudo apt install tcpdump graphviz imagemagick python-gnuplot python-crypto python-pyx
+  sudo apt install tcpdump graphviz imagemagick python-gnuplot python-crypto python-pyx --assume-yes
   pip install scapy
 
   # instal python-NetfilterQueue
-  sudo apt install build-essential python-dev libnetfilter-queue-dev
+  sudo apt install build-essential python-dev libnetfilter-queue-dev --assume-yes
   cd ~/Downloads
   if [ ! -d $python-netfilterqueue ]; then
     git clone https://github.com/fqrouter/python-netfilterqueue.git
@@ -21,7 +21,3 @@ else
     cd python-netfilterqueue
     python setup.py install
 fi
-
-
-
-
